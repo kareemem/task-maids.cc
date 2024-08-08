@@ -1,0 +1,14 @@
+<section class="vh-100 d-flex justify-content-center align-items-center position-relative">
+  <div class="position-absolute">
+    <p><a routerLink="/home" class="fw-bold text-info">HOME</a> / <span class="text-muted">DETAILS</span></p>
+  </div>
+  <div class="p-3 border shadow d-flex justify-content-center rounded-3 align-items-center" *ngFor="let item of user">
+    <div>
+      <img [src]="item.avatar" class="w-100" alt="img user">
+    </div>
+    <div>
+      <h3 class="ms-3 text-muted"><span class="fw-bold text-black">Name : </span> {{item.first_name}} {{item.last_name}}</h3>
+      <h4 class="ms-3 text-muted"><span class="fw-bold text-black">Email : </span> {{item.email}}</h4>
+    </div>
+  </div>
+</section>

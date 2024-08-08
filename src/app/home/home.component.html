@@ -1,0 +1,47 @@
+<div class="p-3">
+  <section class="container-md my-2">
+    <h1 class="text-center text-muted fw-bolder">List of all users</h1>
+    <div class="mt-5 d-flex justify-content-center align-items-center">
+      <mat-form-field class="example-full-width w-100">
+        <mat-label>Search by first name</mat-label>
+        <input matInput [(ngModel)]="searchValue">
+      </mat-form-field>
+      <mat-form-field class="example-full-width w-100 ms-2">
+      <mat-label>Search by email</mat-label>
+      <input matInput [(ngModel)]="emailValue">
+    </mat-form-field>
+  </div>
+  <table class="border w-100 my-2 text-center">
+    <thead>
+      <th class="p-2 border"></th>
+      <th class="p-2 border">First Name</th>
+      <th class="p-2 border">Last Name</th>
+      <th class="p-2 border">Email</th>
+      <th class="p-2 border">Img</th>
+      <th class="p-2 border">view user</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of users|searchName:searchValue|searchemail:emailValue| paginate
+      : {
+          id: 'users',
+          itemsPerPage: 6,
+          currentPage: currentPage,
+        };let i=index">
+        <td class="p-1 border index">{{i+1}}</td>
+        <td class="p-1 border">{{item.first_name}}</td>
+        <td class="p-1 border">{{item.last_name}}</td>
+        <td class="p-1 border">{{item.email}}</td>
+        <td class="p-1 border"><img [src]="item.avatar" class="rounded-circle" alt="user img"></td>
+        <td class="p-1 border"><button class="btn btn-outline-info" [routerLink]="['/details',item.id]"><i class="fa-solid fa-eye"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="d-flex justify-content-center align-items-center mt-2">
+    <pagination-controls
+      (pageChange)="changePage($event)"
+      id="users"
+    ></pagination-controls>
+  </div>
+</section>
+</div>
+

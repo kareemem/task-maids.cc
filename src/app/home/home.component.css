@@ -1,0 +1,19 @@
+img{
+    width: 80px;
+    height: 80px;
+}
+thead
+{
+  background-color: rgb(20, 183, 216);
+}
+.index
+{
+  color: rgb(3, 84, 150);
+  font-weight: 700;
+}
+@media only screen and (max-width: 700px){
+  img{
+    width: 50px;
+    height: 50px;
+}
+}
